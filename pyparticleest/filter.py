@@ -159,14 +159,15 @@ class ParticleFilter(object):
         # Try to keep weights from going to -Inf
         m = numpy.max(new_weights)
         pa.w_offset += m
-        new_weights -= m
+        #new_weights -= m
 
-        pa.w = pa.w + new_weights
+        #pa.w = pa.w + new_weights
 
         # Keep the weights from going to -Inf
-        m = numpy.max(pa.w)
-        pa.w_offset += m
-        pa.w -= m
+        #m = numpy.max(pa.w)
+        #pa.w_offset += m
+        #pa.w -= m
+	pa.w = new_weights
 
         return pa
 
