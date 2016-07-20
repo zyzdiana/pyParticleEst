@@ -157,17 +157,20 @@ class ParticleFilter(object):
                                               tvec=tvec[:cur_ind + 1])
 
         # Try to keep weights from going to -Inf
-        m = numpy.max(new_weights)
+        #m = numpy.max(new_weights)
+        m = 0
         pa.w_offset += m
-        #new_weights -= m
+        new_weights -= m
 
-        #pa.w = pa.w + new_weights
+        pa.w = pa.w + new_weights
 
         # Keep the weights from going to -Inf
         #m = numpy.max(pa.w)
-        #pa.w_offset += m
-        #pa.w -= m
-	pa.w = new_weights
+        m = 0
+        pa.w_offset += m
+        pa.w -= m
+
+        #pa.w = new_weights
 
         return pa
 
